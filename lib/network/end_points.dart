@@ -1,0 +1,9 @@
+const login='login';
+const register='register';
+const home='home';
+const categories='categories';
+const Favourite='favorites';
+const profile='profile';
+const update_profile='update-profile';
+const products_search='products/search';
+String token='';
