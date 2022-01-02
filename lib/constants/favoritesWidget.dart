@@ -16,34 +16,38 @@ class FavoritesWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Stack(
-              alignment: Alignment.bottomLeft,
-              children: [
-                Image(
-                  image: NetworkImage(
-                    '${favModel.product.image}',
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(5),
+              child: Stack(
+                alignment: Alignment.bottomLeft,
+                children: [
+                  Image(
+                    image: NetworkImage(
+                      '${favModel.product.image}',
+                    ),
+                    //fit: BoxFit.cover,
+                    height: 150.0,
                   ),
-                  //fit: BoxFit.cover,
-                  height: 150.0,
-                ),
-               if (favModel.product.discount != 0)
-                Container(
-                  child: Text(
-                    'Discount',
-                    // style: white12regular(),
+                 if (favModel.product.discount != 0)
+                  Container(
+                    child: Text(
+                      'Discount',
+                      // style: white12regular(),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 5.0,
+                    ),
+                    color: Colors.red,
                   ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 5.0,
-                  ),
-                  color: Colors.red,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
 
           Expanded(
+            flex: 2,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10.0,

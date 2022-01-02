@@ -28,6 +28,9 @@ class SearchScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
+                  if(state is LoadSearchstate)
+                    LinearProgressIndicator(),
+                  SizedBox(height:10 ,),
                   CustomTextEditingControl(
                     Controller: textController,
                     label: 'Product Name',
@@ -58,7 +61,13 @@ class SearchScreen extends StatelessWidget {
                         ),
                         itemCount: searchItem.data.data.length,
                       ),
-                      fallback: (context) => Center(child: CircularProgressIndicator(),),
+                      fallback: (context) => Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/images/noItem.png'),
+                          Text('Type to search products'),
+                        ],
+                      ),
                   ),
                 )
                 ],

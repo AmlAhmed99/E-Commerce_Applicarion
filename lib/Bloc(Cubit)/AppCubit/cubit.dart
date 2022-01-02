@@ -164,7 +164,8 @@ class AppCubit extends Cubit<Appstates>{
    }
       ){
 
-    emit(LoadingGetProfileDatastate());
+    emit(LoadingUpdateProfileDatastate());
+    print("loaaaaaaaaaaaaaaaaad");
     DioHelper.putData(
         url: update_profile,
         token: token,
@@ -174,14 +175,14 @@ class AppCubit extends Cubit<Appstates>{
           'name':name,
         }
 
-    )
-        .then((value) {
+    ).then((value) {
+      print("successsssssssssssssssssssssss");
       profileModel=Loginmodel.fromJson(value.data);
 
-      emit(SuccessGetProfileDatastate(profileModel));
+      emit(SuccessUpdateProfileDatastate(profileModel));
     }).catchError((error){
-
-      emit(ErrorGetProfileDatastate());
+      print("erorrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+      emit(ErrorUpdateProfileDatastate());
     });
 
   }
